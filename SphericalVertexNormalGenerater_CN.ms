@@ -2,42 +2,42 @@
 
 macroScript SphericalNormalGenerater category:"MazaCustom"
 (
-	rollout HelpWindow "ËµÃ÷" width:384 height:224
+	rollout HelpWindow "è¯´æ˜" width:384 height:224
 	(
-		GroupBox 'grp4' "ÓÉ¸¨ÖúµãÉú³É·¨Ïß" pos:[8,8] width:368 height:88 align:#left
-		label 'lbl6' "Ä¿±êÄ£ĞÍµÄ¶¥µã·¨Ïß½«±»Éú³ÉÎª£º¸¨ÖúµãÖ¸Ïò¸÷¸ö¶¥µãµÄ·½Ïò" pos:[24,32] width:336 height:16 align:#left
+		GroupBox 'grp4' "ç”±è¾…åŠ©ç‚¹ç”Ÿæˆæ³•çº¿" pos:[8,8] width:368 height:88 align:#left
+		label 'lbl6' "ç›®æ ‡æ¨¡å‹çš„é¡¶ç‚¹æ³•çº¿å°†è¢«ç”Ÿæˆä¸ºï¼šè¾…åŠ©ç‚¹æŒ‡å‘å„ä¸ªé¡¶ç‚¹çš„æ–¹å‘" pos:[24,32] width:336 height:16 align:#left
 		
-		GroupBox 'grp5' "²Î¿¼Ä£ĞÍ´«µİ·¨Ïß" pos:[8,112] width:368 height:64 align:#left
-		label 'lbl8' "Ä¿±êÄ£ĞÍ¸÷¸ö¶¥µã»á²éÕÒ²Î¿¼Ä£ĞÍÉÏ¾àÀë×î½üµÄÈı¸ö¶¥µã£¬²¢¸ù¾İ¾àÀë×ö²å¡¢×÷Îª¶¥µãµÄĞÂ·¨Ïß·½Ïò" pos:[24,136] width:336 height:32 align:#left
-		label 'lbl9' "£¡-- Ê°È¡µÄ²Î¿¼¶ÔÏóÎª£º¸¨Öú¶ÔÏó¡úµã" pos:[24,64] width:336 height:16 align:#left
+		GroupBox 'grp5' "å‚è€ƒæ¨¡å‹ä¼ é€’æ³•çº¿" pos:[8,112] width:368 height:64 align:#left
+		label 'lbl8' "ç›®æ ‡æ¨¡å‹å„ä¸ªé¡¶ç‚¹ä¼šæŸ¥æ‰¾å‚è€ƒæ¨¡å‹ä¸Šè·ç¦»æœ€è¿‘çš„ä¸‰ä¸ªé¡¶ç‚¹ï¼Œå¹¶æ ¹æ®è·ç¦»åšæ’ã€ä½œä¸ºé¡¶ç‚¹çš„æ–°æ³•çº¿æ–¹å‘" pos:[24,136] width:336 height:32 align:#left
+		label 'lbl9' "ï¼-- æ‹¾å–çš„å‚è€ƒå¯¹è±¡ä¸ºï¼šè¾…åŠ©å¯¹è±¡â†’ç‚¹" pos:[24,64] width:336 height:16 align:#left
 		label 'lbl11' "Mazarine Skygem" pos:[272,184] width:96 height:16 align:#left
 		label 'lbl12' "2021.05.09" pos:[288,200] width:72 height:16 align:#left
 	)
 
 
 
-	rollout TransportVertsNormal "´«µİ¶¥µã·¨Ïß" width:216 height:450
+	rollout TransportVertsNormal "ä¼ é€’é¡¶ç‚¹æ³•çº¿" width:216 height:450
 	(
-		--Ô¤ÏÈÉêÃ÷¸ö²¼¶ûÖµ£¬·ÀÖ¹¹Ø±Õ½Å±¾µÄÊ±ºòÎóÉ¾Ä£ĞÍ
+		--é¢„å…ˆç”³æ˜ä¸ªå¸ƒå°”å€¼ï¼Œé˜²æ­¢å…³é—­è„šæœ¬çš„æ—¶å€™è¯¯åˆ æ¨¡å‹
 		Local isTargetMeshNew = false
 		Local isHelpPointNew = false
 		Local isRefMeshNew = false
 		Local isReadyOrNot = false
 		
 		--UI-Functions
-		GroupBox 'modeGroup' "·¨ÏßÉú³É·½Ê½" pos:[8,8] width:200 height:64 align:#left
-		radiobuttons 'transportMod' "" pos:[48,32] width:135 height:32 enabled:true labels:#("ÓÉ¸¨ÖúµãÉú³É·¨Ïß", "²Î¿¼Ä£ĞÍ´«µİ·¨Ïß") default:2 columns:1 align:#left
+		GroupBox 'modeGroup' "æ³•çº¿ç”Ÿæˆæ–¹å¼" pos:[8,8] width:200 height:64 align:#left
+		radiobuttons 'transportMod' "" pos:[48,32] width:135 height:32 enabled:true labels:#("ç”±è¾…åŠ©ç‚¹ç”Ÿæˆæ³•çº¿", "å‚è€ƒæ¨¡å‹ä¼ é€’æ³•çº¿") default:2 columns:1 align:#left
 			--transportMod.state
-			-- 1 = ÓÉ¸¨ÖúµãÉú³É·¨Ïß
-			-- 2 = ²Î¿¼Ä£ĞÍ´«µİ·¨Ïß
+			-- 1 = ç”±è¾…åŠ©ç‚¹ç”Ÿæˆæ³•çº¿
+			-- 2 = å‚è€ƒæ¨¡å‹ä¼ é€’æ³•çº¿
 		
-		GroupBox 'pickMeshGroup' "Ê°È¡Ä£ĞÍ" pos:[8,88] width:202 height:216 align:#left
+		GroupBox 'pickMeshGroup' "æ‹¾å–æ¨¡å‹" pos:[8,88] width:202 height:216 align:#left
 		
 		label 'targetMeshName' "None" pos:[16,152] width:184 height:16 enabled:true align:#right
 		label 'helpPointName' "None" pos:[16,216] width:184 height:16 enabled:true align:#left
 		label 'refMeshName' "None" pos:[16,280] width:184 height:16 enabled:true align:#left
 
-		--Ê°È¡Ä£ĞÍµÄ¼ì²â£¬Ó¦¸ÃÖ»ÒªÊÇÊ°È¡Ä£ĞÍ¶¼¿ÉÒÔÓÃÕâ¸öfunction
+		--æ‹¾å–æ¨¡å‹çš„æ£€æµ‹ï¼Œåº”è¯¥åªè¦æ˜¯æ‹¾å–æ¨¡å‹éƒ½å¯ä»¥ç”¨è¿™ä¸ªfunction
 		function MeshTest i_obj = 
 		(
 			(classOf i_obj) == Editable_mesh \
@@ -47,27 +47,27 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 		
 		function PointTest i_obj = classOf i_obj == Point
 		
-		--Ê°È¡Ä¿±êÄ£ĞÍ°´Å¥
-		pickbutton 'pickTargetMeshButton' "Ê°È¡Ä¿±êÄ£ĞÍ" pos:[16,112] width:184 height:32 \
+		--æ‹¾å–ç›®æ ‡æ¨¡å‹æŒ‰é’®
+		pickbutton 'pickTargetMeshButton' "æ‹¾å–ç›®æ ‡æ¨¡å‹" pos:[16,112] width:184 height:32 \
 					 enabled:true align:#left filter:MeshTest
 		
-		pickbutton 'pickHelpPointButton' "Ê°È¡¸¨Öúµã" pos:[16,176] width:184 height:32 \
+		pickbutton 'pickHelpPointButton' "æ‹¾å–è¾…åŠ©ç‚¹" pos:[16,176] width:184 height:32 \
 					enabled:false align:#left filter:PointTest
 		
-		pickbutton 'pickRefMeshButton' "Ê°È¡²Î¿¼Ä£ĞÍ" pos:[16,240] width:184 height:32 \
+		pickbutton 'pickRefMeshButton' "æ‹¾å–å‚è€ƒæ¨¡å‹" pos:[16,240] width:184 height:32 \
 					enabled:true align:#left filter:MeshTest
 		
 		progressBar 'progress' "ProgressBar" pos:[8,316] width:200 height:16 value:0 align:#left
 		
 		label 'progressText' "0/0" pos:[8,340] width:184 height:16 enabled:true align:#right
 		
-		button 'helpMessage' "×¢ÊÍ" pos:[40,365] width:136 height:32 enabled:true toolTip:"" align:#left
+		button 'helpMessage' "æ³¨é‡Š" pos:[40,365] width:136 height:32 enabled:true toolTip:"" align:#left
 		
-		button 'generateNormal' "Éú³É·¨Ïß" pos:[40,405] width:136 height:32 enabled:false toolTip:"" align:#left
+		button 'generateNormal' "ç”Ÿæˆæ³•çº¿" pos:[40,405] width:136 height:32 enabled:false toolTip:"" align:#left
 
 		
 		
-		--Ê°È¡ Ä£ĞÍ¡¢¸¨Öúµã °´Å¥ ÆôÓÃ¡¢½ûÓÃ ÇĞ»»
+		--æ‹¾å– æ¨¡å‹ã€è¾…åŠ©ç‚¹ æŒ‰é’® å¯ç”¨ã€ç¦ç”¨ åˆ‡æ¢
 		
 		function isGenerateButtonReady = 
 		(
@@ -86,26 +86,26 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 				if ($tmpTargetMesh_Maza == undefined or isTargetMeshNew == true)and obj!=$tmpTargetMesh_Maza \
 					then 
 					(
-						--ÏÈ¼ì²éÈç¹ûÄ£ĞÍ²»Îª¿Õ¾ÍÉ¾ÁËÄ£ĞÍ
+						--å…ˆæ£€æŸ¥å¦‚æœæ¨¡å‹ä¸ä¸ºç©ºå°±åˆ äº†æ¨¡å‹
 						if $tmpTargetMesh_Maza != undefined do delete $tmpTargetMesh_Maza
 							
-						--¿½±´³öÒ»¸öĞÂµÄÄ£ĞÍÀ´Ê¹ÓÃ£¬¼ì²éÊÇ·ñÊÇ¿É±à¼­Íø¸ñ£¬Èç¹û²»ÊÇ×ª»»Ò»ÏÂ
+						--æ‹·è´å‡ºä¸€ä¸ªæ–°çš„æ¨¡å‹æ¥ä½¿ç”¨ï¼Œæ£€æŸ¥æ˜¯å¦æ˜¯å¯ç¼–è¾‘ç½‘æ ¼ï¼Œå¦‚æœä¸æ˜¯è½¬æ¢ä¸€ä¸‹
 						copy obj name:"tmpTargetMesh_Maza" wireColor:[127,127,255]
 						if classOf $tmpTargetMesh_Maza != Editable_mesh \
 							do convertTo $tmpTargetMesh_Maza Editable_mesh
 						targetMeshName.text = obj.name
 						
-						--¸üĞÂ²¼¶ûÖµ£¬¹Ø±Õ½Å±¾µÄÊ±ºòÉ¾³ıÕâ¸öĞÂ´´½¨µÄÄ£ĞÍ
+						--æ›´æ–°å¸ƒå°”å€¼ï¼Œå…³é—­è„šæœ¬çš„æ—¶å€™åˆ é™¤è¿™ä¸ªæ–°åˆ›å»ºçš„æ¨¡å‹
 						isTargetMeshNew = true
 						isGenerateButtonReady()
 						generateNormal.enabled = isReadyOrNot
 						
 					)
-					else messageBox "tmpTargetMesh_MazaÃû³Æ²»¿ÉÕ¼ÓÃ¡¢²»¿ÉÊ°È¡"
+					else messageBox "tmpTargetMesh_Mazaåç§°ä¸å¯å ç”¨ã€ä¸å¯æ‹¾å–"
 			)
 		)
 
-		--ÏÂÃæÕâ¶ÎÂß¼­ºÍÉÏÃæ¼¸ºõÒ»Ñù£¬¾Í²»ÖØ¸´¼Ó×¢ÊÍÁË£¬É¾³ıÁË¿É±à¼­Íø¸ñ×ª»»ÕâÒ»²½
+		--ä¸‹é¢è¿™æ®µé€»è¾‘å’Œä¸Šé¢å‡ ä¹ä¸€æ ·ï¼Œå°±ä¸é‡å¤åŠ æ³¨é‡Šäº†ï¼Œåˆ é™¤äº†å¯ç¼–è¾‘ç½‘æ ¼è½¬æ¢è¿™ä¸€æ­¥
 		on pickHelpPointButton picked obj do
 		(
 			if obj != undefined do
@@ -120,7 +120,7 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 						isGenerateButtonReady()
 						generateNormal.enabled = isReadyOrNot
 					)
-					else messageBox "tmpHelpPoint_MazaÃû³Æ²»¿ÉÕ¼ÓÃ¡¢²»¿ÉÊ°È¡"
+					else messageBox "tmpHelpPoint_Mazaåç§°ä¸å¯å ç”¨ã€ä¸å¯æ‹¾å–"
 
 			)
 		)
@@ -132,21 +132,21 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 				if ($tmpRefMesh_Maza == undefined or isRefMeshNew == true)and obj!=$tmpRefMesh_Maza \
 					then 
 					(
-						--ÏÈ¼ì²éÈç¹ûÄ£ĞÍ²»Îª¿Õ¾ÍÉ¾ÁËÄ£ĞÍ
+						--å…ˆæ£€æŸ¥å¦‚æœæ¨¡å‹ä¸ä¸ºç©ºå°±åˆ äº†æ¨¡å‹
 						if $tmpRefMesh_Maza != undefined do delete $tmpRefMesh_Maza
 							
-						--¿½±´³öÒ»¸öĞÂµÄÄ£ĞÍÀ´Ê¹ÓÃ£¬¼ì²éÊÇ·ñÊÇ¿É±à¼­Íø¸ñ£¬Èç¹û²»ÊÇ×ª»»Ò»ÏÂ
+						--æ‹·è´å‡ºä¸€ä¸ªæ–°çš„æ¨¡å‹æ¥ä½¿ç”¨ï¼Œæ£€æŸ¥æ˜¯å¦æ˜¯å¯ç¼–è¾‘ç½‘æ ¼ï¼Œå¦‚æœä¸æ˜¯è½¬æ¢ä¸€ä¸‹
 						copy obj name:"tmpRefMesh_Maza" wireColor:[127,127,255]
 						if classOf $tmpRefMesh_Maza != Editable_mesh \
 							do convertTo $tmpRefMesh_Maza Editable_mesh
 						refMeshName.text = obj.name
 						
-						--¸üĞÂ²¼¶ûÖµ£¬¹Ø±Õ½Å±¾µÄÊ±ºòÉ¾³ıÕâ¸öĞÂ´´½¨µÄÄ£ĞÍ
+						--æ›´æ–°å¸ƒå°”å€¼ï¼Œå…³é—­è„šæœ¬çš„æ—¶å€™åˆ é™¤è¿™ä¸ªæ–°åˆ›å»ºçš„æ¨¡å‹
 						isRefMeshNew = true	
 						isGenerateButtonReady()
 						generateNormal.enabled = isReadyOrNot
 					)
-					else messageBox "tmpRefMesh_MazaÃû³Æ²»¿ÉÕ¼ÓÃ¡¢²»¿ÉÊ°È¡"
+					else messageBox "tmpRefMesh_Mazaåç§°ä¸å¯å ç”¨ã€ä¸å¯æ‹¾å–"
 			)
 		)
 
@@ -170,7 +170,7 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 						update $tmpTargetMesh_Maza
 						copy $tmpTargetMesh_Maza name:(targetMeshName.text + "_reGenNormal")
 						
-						--ÖØÖÆÊ°È¡¶ÔÏóºÍ°´Å¥
+						--é‡åˆ¶æ‹¾å–å¯¹è±¡å’ŒæŒ‰é’®
 						delete $tmpTargetMesh_Maza
 						isTargetMeshNew = false
 						targetMeshName.text = "None"
@@ -195,16 +195,16 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 						(
 							Local currentTargetPoint = getVert $tmpTargetMesh_Maza u
 							
-							--ÕÒµ½×î½üµÄÈı¸öµã
+							--æ‰¾åˆ°æœ€è¿‘çš„ä¸‰ä¸ªç‚¹
 							for u = 1 to refMeshVertCount by 1 do
 							(
-								--µ±Ç°Ê°È¡µÄ²Î¿¼Ä£ĞÍµÄ¶¥µã
-								--ºÍµ±Ç°Ä¿±êÄ£ĞÍ¶¥µãµ½²Î¿¼Ä£ĞÍ¶¥µãµÄ¾àÀë
+								--å½“å‰æ‹¾å–çš„å‚è€ƒæ¨¡å‹çš„é¡¶ç‚¹
+								--å’Œå½“å‰ç›®æ ‡æ¨¡å‹é¡¶ç‚¹åˆ°å‚è€ƒæ¨¡å‹é¡¶ç‚¹çš„è·ç¦»
 								Local o = getVert $tmpRefMesh_Maza u
 								Local d = distance o currentTargetPoint
 								p0 = #(u , d)
 								
-								--ÊÕ¼¯¾àÀë×î½üµÄÈı¸ö¶¥µã²¢ÒÀ¾àÀë´ÓĞ¡µ½´óÅÅĞò
+								--æ”¶é›†è·ç¦»æœ€è¿‘çš„ä¸‰ä¸ªé¡¶ç‚¹å¹¶ä¾è·ç¦»ä»å°åˆ°å¤§æ’åº
 								case of
 								(
 									(u == 1): p1 = p0
@@ -259,7 +259,7 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 									
 								)
 							)
-						--¼ÆËã·¨Ïß
+						--è®¡ç®—æ³•çº¿
 						
 						Local lerpA = p1[2] / (p1[2] + p2[2])
 						Local tmp_N = lerpA*(getNormal $tmpRefMesh_Maza p1[1]) + (1 - lerpA)*(getNormal $tmpRefMesh_Maza p2[1])
@@ -276,7 +276,7 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 						update $tmpTargetMesh_Maza
 						copy $tmpTargetMesh_Maza name:(targetMeshName.text + "_reGenNormal")
 						
-						--ÖØÖÆÊ°È¡¶ÔÏóºÍ°´Å¥
+						--é‡åˆ¶æ‹¾å–å¯¹è±¡å’ŒæŒ‰é’®
 						delete $tmpTargetMesh_Maza
 						isTargetMeshNew = false
 						targetMeshName.text = "None"
@@ -311,7 +311,7 @@ macroScript SphericalNormalGenerater category:"MazaCustom"
 			generateNormal.enabled = isReadyOrNot
 		)
 
-		--¹Ø±ÕGUIÊ±ºòµÄÇåÀíÉú³ÉµÄObj
+		--å…³é—­GUIæ—¶å€™çš„æ¸…ç†ç”Ÿæˆçš„Obj
 		on transportVertsNormal close do 
 		(
 			if $tmpTargetMesh_Maza != undefined and isTargetMeshNew then delete $tmpTargetMesh_Maza
